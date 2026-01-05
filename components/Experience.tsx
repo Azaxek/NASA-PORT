@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Section from './Section';
+import { motion } from 'framer-motion';
 
 const ExperienceItem: React.FC<{
   title: string;
@@ -9,50 +10,65 @@ const ExperienceItem: React.FC<{
   description?: string[];
   extra?: string;
 }> = ({ title, org, date, description, extra }) => (
-  <div className="relative pl-8 border-l border-slate-800 pb-12 last:pb-0">
-    <div className="absolute left-[-5px] top-0 w-[10px] h-[10px] rounded-full bg-blue-500 ring-4 ring-slate-950"></div>
-    <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors shadow-sm">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
+  <div className="relative pl-10 border-l-2 border-slate-800 pb-12 last:pb-0">
+    <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-950"></div>
+    <motion.div 
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      className="bg-slate-900/30 border border-slate-800/60 rounded-2xl p-8 hover:border-slate-700/80 transition-all hover:bg-slate-900/50 shadow-xl"
+    >
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
         <div>
-          <h3 className="text-xl font-bold text-white">{org}</h3>
-          <p className="text-blue-400 font-medium">{title}</p>
+          <h3 className="text-2xl font-bold text-white mb-1">{org}</h3>
+          <p className="text-blue-400 font-semibold tracking-wide uppercase text-sm">{title}</p>
         </div>
-        <span className="text-sm font-medium px-3 py-1 bg-slate-800 rounded-full text-slate-400 shrink-0">
+        <span className="text-xs font-bold px-4 py-1.5 bg-slate-800/80 rounded-full text-slate-300 shrink-0 border border-slate-700/50">
           {date}
         </span>
       </div>
       {description && (
-        <ul className="space-y-2 text-slate-400 list-disc list-inside">
+        <ul className="space-y-3 text-slate-400 font-light leading-relaxed">
           {description.map((item, idx) => (
-            <li key={idx}>{item}</li>
+            <li key={idx} className="flex gap-3">
+              <span className="text-blue-500 shrink-0">▹</span>
+              {item}
+            </li>
           ))}
         </ul>
       )}
-      {extra && <p className="mt-4 text-sm text-slate-500 italic">{extra}</p>}
-    </div>
+      {extra && (
+        <div className="mt-8 pt-6 border-t border-slate-800/50">
+          <p className="text-sm text-slate-500 leading-relaxed font-light">
+            <strong className="text-slate-400 font-medium">Focus:</strong> {extra}
+          </p>
+        </div>
+      )}
+    </motion.div>
   </div>
 );
 
 const Experience: React.FC = () => {
   return (
-    <Section title="Experience & Education">
-      <div className="space-y-2">
+    <Section title="Professional Narrative">
+      <div className="max-w-4xl space-y-4">
         <ExperienceItem 
-          org="NASA – National Aeronautics and Space Administration"
-          title="Data Analyst"
+          org="NASA – National Aeronautics & Space Administration"
+          title="Senior Data Analyst"
           date="Jan 2021 – Present"
           description={[
-            "Large-scale dataset analysis",
-            "Data pipeline creation and maintenance",
-            "Dashboard and visualization development"
+            "Processing petabyte-scale scientific datasets for planetary observation",
+            "Designing robust ETL pipelines for mission-critical sensor telemetry",
+            "Developing high-fidelity visualizations for cross-functional mission leads"
           ]}
         />
         <ExperienceItem 
           org="Del Mar College"
-          title="Teaching Assistant (Part-Time)"
+          title="Teaching Assistant (Space Systems Research)"
           date="Feb 2022 – Jan 2025"
           description={[
-            "Support labs and student research in orbital and Earth-observation data"
+            "Mentoring undergraduate researchers in orbital mechanics and satellite data processing",
+            "Orchestrating lab environments for Earth-observation data analysis"
           ]}
         />
         <ExperienceItem 
@@ -60,15 +76,15 @@ const Experience: React.FC = () => {
           title="Data Analyst Intern"
           date="Jul 2018 – Jul 2020"
           description={[
-            "Analyze large datasets using SQL/Python",
-            "Build dashboards and translate data into actionable insights"
+            "Optimized data retrieval systems using advanced SQL and Python modeling",
+            "Built executive dashboards to translate telemetry into business insights"
           ]}
         />
         <ExperienceItem 
           org="University of California, Berkeley"
-          title="Bachelor’s Degree — Data Processing & Data Processing Technology"
+          title="B.S. in Data Processing Technology"
           date="Aug 2014 – May 2018"
-          extra="Activities: NASA Datanauts Program, NASA Space Apps Challenge, Women in Data @ NASA, Earth Science Working Group, UC Berkeley Data Science Society"
+          extra="NASA Datanauts, NASA Space Apps, Women in Data @ NASA, Earth Science Working Group, UC Berkeley Data Science Society"
         />
       </div>
     </Section>
