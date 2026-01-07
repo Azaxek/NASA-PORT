@@ -18,19 +18,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative z-10 text-center"
       >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 relative inline-block"
-        >
-          <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-20"></div>
-          <img
-            src="/assets/janessa.jpg"
-            alt="Janessa Toy"
-            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-blue-400/30 shadow-2xl"
-          />
-        </motion.div>
+
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
