@@ -20,7 +20,12 @@ const About: React.FC = () => {
             mentorship reflect a commitment to both technical rigor and the development of the next generation of STEM researchers.
           </p>
         </div>
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-5 space-y-8">
+          <div className="rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative group">
+            <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+            <img src="/assets/image9.png" alt="Janessa Toy Workspace" className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
+          </div>
+
           <div className="glass rounded-[2rem] p-10 border border-slate-800 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 blur-3xl -z-10 group-hover:bg-blue-600/20 transition-colors"></div>
             <h4 className="text-blue-400 font-bold mb-8 text-xs uppercase tracking-[0.3em]">Technical Focus</h4>
