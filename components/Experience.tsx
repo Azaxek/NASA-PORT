@@ -12,7 +12,7 @@ const ExperienceItem: React.FC<{
 }> = ({ title, org, date, description, extra }) => (
   <div className="relative pl-10 border-l-2 border-slate-800 pb-12 last:pb-0">
     <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-950"></div>
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, x: -10 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
@@ -52,35 +52,36 @@ const Experience: React.FC = () => {
   return (
     <Section title="Professional Narrative">
       <div className="max-w-4xl space-y-4">
-        <ExperienceItem 
-          org="NASA – National Aeronautics & Space Administration"
-          title="Senior Data Analyst"
+        <ExperienceItem
+          org="Del Mar College"
+          title="Researcher (Space Systems)"
+          date="Feb 2022 – Dec 2025"
+          description={[
+            "I led research initiatives in orbital mechanics and satellite data processing",
+            "I orchestrated lab environments for Earth-observation data analysis",
+            "I mentored undergraduate researchers in scientific methodology"
+          ]}
+        />
+        <ExperienceItem
+          org="NASA JSC Center (Houston)"
+          title="Part-Time Researcher"
           date="Jan 2021 – Present"
           description={[
-            "Processing petabyte-scale scientific datasets for planetary observation",
-            "Designing robust ETL pipelines for mission-critical sensor telemetry",
-            "Developing high-fidelity visualizations for cross-functional mission leads"
+            "I process petabyte-scale scientific datasets for planetary observation",
+            "I design robust ETL pipelines for mission-critical sensor telemetry",
+            "I develop high-fidelity visualizations for cross-functional mission leads"
           ]}
         />
-        <ExperienceItem 
-          org="Del Mar College"
-          title="Teaching Assistant (Space Systems Research)"
-          date="Feb 2022 – Jan 2025"
-          description={[
-            "Mentoring undergraduate researchers in orbital mechanics and satellite data processing",
-            "Orchestrating lab environments for Earth-observation data analysis"
-          ]}
-        />
-        <ExperienceItem 
+        <ExperienceItem
           org="Microsoft"
           title="Data Analyst Intern"
           date="Jul 2018 – Jul 2020"
           description={[
-            "Optimized data retrieval systems using advanced SQL and Python modeling",
-            "Built executive dashboards to translate telemetry into business insights"
+            "I optimized data retrieval systems using advanced SQL and Python modeling",
+            "I built executive dashboards to translate telemetry into business insights"
           ]}
         />
-        <ExperienceItem 
+        <ExperienceItem
           org="University of California, Berkeley"
           title="B.S. in Data Processing Technology"
           date="Aug 2014 – May 2018"
